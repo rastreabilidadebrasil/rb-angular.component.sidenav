@@ -1,0 +1,127 @@
+@import "../../core/theme/variables";
+
+:host {
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.active-indicator {
+  position: absolute;
+  left: 222px;
+  width: 2em;
+  height: 2.4em;
+  top: 17px;
+  z-index: 1;
+  border-bottom: 1.2em solid transparent;
+  border-right: 1em solid $color-light;
+  border-top: 1.2em solid transparent;
+  transition: all .2s ease-out;
+}
+
+.rb-side-nav {
+  width: 250px;
+  box-shadow: -6px 0px 5px 1px $color-transparency inset;
+  margin: 0;
+  height: 100%;
+  color: #777;
+  display: flex;
+  flex-direction: column;
+  transition: all .3s ease-out;
+
+  nav .nav-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /deep/ * {
+    transition: all .3s ease-out;
+
+  }
+
+  &.collapsed {
+    width: $rb-md-padding*3;
+
+    /deep/ .rb-menu-item {
+      span {
+        opacity: 0;
+      }
+
+      &.active i {
+        padding-left: 0;
+      }
+    }
+
+    /deep/ .rb-separator {
+      height: 1px;
+    }
+  }
+
+  section {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  /deep/ .rb-menu-item {
+    padding: $rb-md-adictional-padding $rb-md-padding;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    color: lighten(map_get($colors, 'primary'), 90);
+
+    span {
+      font-weight: 400;
+    }
+
+    &:first-of-type {
+      margin-top: $rb-md-padding;
+    }
+
+    &.active {
+      background: $color-transparency;
+      i {
+        padding-left: $rb-md-padding;
+      }
+    }
+
+    i {
+      transition: all .2s ease-out;
+      margin-right: $rb-md-adictional-padding*2;
+    }
+  }
+
+  /deep/ .rb-separator {
+    height: 53px;
+    overflow: hidden;
+    display: block;
+
+    span {
+      padding: $rb-md-padding $rb-md-padding+$rb-md-adictional-padding;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: rgba($color-transparency, .2);
+      color: rgba($color-light, .2);
+      font-weight: 400;
+      display: block;
+    }
+  }
+
+  /deep/ .rb-divider {
+    display: block;
+    border-bottom: 1px solid rgba($color-transparency, .2);
+  }
+
+  footer {
+    height: $rb-md-padding*3;
+    border-top: 1px solid rgba($color-transparency, .2);
+    width: 100%;
+    background: $color-transparency;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
+}

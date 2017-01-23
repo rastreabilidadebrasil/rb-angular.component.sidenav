@@ -1,0 +1,29 @@
+<div class="rb-side-nav" [ngClass]="{'collapsed': collapsed}" input-color input-color-desaturate="8" #sideMenu>
+  <section>
+    <ng-content select="rb-sidenav-item, rb-sidenav-separator, rb-sidenav-divider"></ng-content>
+    <!--<div class="rb-menu-item waves-effect waves-light btn-flat" [ngClass]="{'active': active==='l1'}"
+         (click)="active='l1'">
+      <i class="material-icons">phonelink_setup</i> <span>Link 1</span>
+    </div>
+    <div class="rb-menu-item waves-effect waves-light btn-flat" [ngClass]="{'active': active==='l2'}"
+         (click)="active='l2'">
+      <i class="material-icons">settings</i> <span>Link 2</span>
+    </div>
+    <div class="rb-separator">
+      <span>Configurações</span>
+    </div>
+    <div class="rb-menu-item waves-effect waves-light btn-flat" [ngClass]="{'active': active==='l3'}"
+         (click)="active='l3'">
+      <i class="material-icons">phonelink_setup</i> <span>Link 3</span>
+    </div>
+    <div class="rb-menu-item waves-effect waves-light btn-flat tooltipped" [ngClass]="{'active': active==='l4'}"
+         (click)="active='l4'" data-position="right" data-delay="50" data-tooltip="I am tooltip">
+      <i class="material-icons">settings</i> <span>Link 4</span>
+    </div>
+    <div class="rb-divider"></div>-->
+  </section>
+  <footer padding-sides>
+    <ng-content select="rb-sidenav-footer"></ng-content>
+  </footer>
+</div>
+<div #indicator class="active-indicator" [style.top.px]="sideMenu.querySelector('rb-sidenav-item.active')?.offsetTop"></div>

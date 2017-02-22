@@ -28,7 +28,7 @@ export class RbSidenavComponent {
 
 @Component({
   selector: 'rb-sidenav-item',
-  templateUrl: `<ng-content></ng-content>`,
+  template: `<ng-content></ng-content>`,
   encapsulation: ViewEncapsulation.None,
 })
 export class RbSidenavItemComponent {
@@ -38,7 +38,7 @@ export class RbSidenavItemComponent {
 
 @Component({
   selector: 'rb-sidenav-separator',
-  templateUrl: `<span><ng-content></ng-content></span>`,
+  template: `<span><ng-content></ng-content></span>`,
   encapsulation: ViewEncapsulation.None,
 })
 export class RbSidenavSeparatorComponent {

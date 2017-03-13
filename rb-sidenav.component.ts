@@ -1,23 +1,31 @@
-import { Input, Component, ViewEncapsulation, HostBinding, ViewChild, ElementRef } from '@angular/core';
+import {
+  Input, Component, ViewEncapsulation, HostBinding, ViewChild, ElementRef,
+  AfterContentInit
+} from '@angular/core';
 
 @Component({
   selector: 'rb-sidenav',
   templateUrl: 'rb-sidenav.component.html',
   styleUrls: ['rb-sidenav.component.scss']
 })
-export class RbSidenavComponent {
+export class RbSidenavComponent implements AfterContentInit {
   collapsed: boolean;
   @ViewChild('sideMenu') sideMenu: ElementRef;
   @ViewChild('indicator') indicator: ElementRef;
 
   constructor() {
+  }
+
+  ngAfterContentInit(): void {
     this.setCollapsed(false);
   }
 
   setCollapsed(val: boolean) {
     setTimeout(() => {
-      this.indicator.nativeElement.style.top = `${this.sideMenu.nativeElement.querySelector('rb-sidenav-item.active').offsetTop}px`;
-    }, 300);
+      const avtive = this.sideMenu.nativeElement.querySelector('rb-sidenav-item.active');
+      if (!avtive) return;
+      this.indicator.nativeElement.style.top = `${avtive.offsetTop}px`;
+    }, 500);
     this.collapsed = val;
   }
 
